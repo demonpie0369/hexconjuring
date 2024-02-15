@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "hexconjuring",
+  "version": "${version}",
+  "name": "Hex Conjuring",
+  "description": "Adds patterns that allow you to conjure things from media",
+  "authors": [
+    "demonpie"
+  ],
+  "contact": {
+    "homepage": "https://demonpie.github.io/hexconjuring",
+    "sources": "https://github.com/demonpie/hexconjuring"
+  },
+  "license": "MIT",
+  "icon": "icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "net.hexconjuring.fabric.HexconjuringFabric"
+    ],
+    "client": [
+      "net.hexconjuring.fabric.HexconjuringClientFabric"
+    ]
+  },
+  "mixins": [
+    "hexconjuring-common.mixins.json",
+    "hexconjuring.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=${minecraftVersion}",
+    "fabricloader": ">=${fabricLoaderVersion}",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=${fabricKotlinVersion}",
+    "architectury": ">=${architecturyVersion}",
+    "hexcasting": ">=${hexcastingVersion}"
+  }
+}

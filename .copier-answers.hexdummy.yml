@@ -1,0 +1,20 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+# https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
+_commit: v0.0.6
+_src_path: gh:FallingColors/hexdummy
+author: demonpie
+capitalize_platforms: false
+classname: Hexconjuring
+default_branch: main
+description: Adds patterns that allow you to conjure things from media
+display_name: Hex Conjuring
+github_repo: hexconjuring
+hexcasting_version: 0.10.3
+homepage_url: https://demonpie.github.io/hexconjuring
+initial_mod_version: 0.0.1
+java_version: 17
+license: MIT
+mappings_name: Yarn
+modid: hexconjuring
+package: net.hexconjuring
+sources_url: https://github.com/demonpie/hexconjuring
