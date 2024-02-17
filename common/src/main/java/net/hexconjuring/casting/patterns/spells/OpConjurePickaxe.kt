@@ -1,4 +1,4 @@
-package net.hexconjuring.casting.patterns.spells
+package net.hexdummy.casting.patterns.spells
 
 import at.petrak.hexcasting.api.misc.MediaConstants
 import at.petrak.hexcasting.api.spell.ParticleSpray
@@ -11,7 +11,7 @@ import at.petrak.hexcasting.api.spell.mishaps.MishapBadEntity
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
 
-class OpCongrats : SpellAction {
+class OpConjurePickaxe : SpellAction {
     /**
      * The number of arguments from the stack that this action requires.
      */
@@ -40,7 +40,7 @@ class OpCongrats : SpellAction {
 
         if (target !is ServerPlayerEntity) throw MishapBadEntity(
             target,
-            Text.translatable("text.hexconjuring.congrats.player")
+            Text.translatable("text.hexdummy.congrats.player")
         )
 
         return Triple(
@@ -57,7 +57,7 @@ class OpCongrats : SpellAction {
      */
     private data class Spell(val player: ServerPlayerEntity) : RenderedSpell {
         override fun cast(ctx: CastingContext) {
-            ctx.caster.sendMessage(Text.translatable("text.hexconjuring.congrats", player.displayName));
+            ctx.caster.sendMessage(Text.translatable("text.hexdummy.congrats", player.displayName));
         }
     }
 }

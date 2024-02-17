@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.hexconjuring.Hexconjuring;
 import net.minecraft.item.Item;
+import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.registry.Registry;
@@ -20,10 +21,10 @@ public class HexconjuringItemRegistry {
     }
 
     // A new creative tab. Notice how it is one of the few things that are not deferred
-    public static final ItemGroup DUMMY_GROUP = CreativeTabRegistry.create(id("dummy_group"), () -> new ItemStack(HexconjuringItemRegistry.DUMMY_ITEM.get()));
+    public static final ItemGroup HEX_CONJURING = CreativeTabRegistry.create(id("hex_conjuring"), () -> new ItemStack(HexconjuringItemRegistry.CONJURED_PICKAXE.get()));
 
-    // During the loading phase, refrain from accessing suppliers' items (e.g. EXAMPLE_ITEM.get()), they will not be available
-    public static final RegistrySupplier<Item> DUMMY_ITEM = ITEMS.register("dummy_item", () -> new Item(new Item.Settings().group(DUMMY_GROUP)));
+    // During the loading phase, refrain from accessing sueppliers' items (e.g. EXAMPLE_ITEM.gt()), they will not be available
+    public static final RegistrySupplier<PickaxeItem> CONJURED_PICKAXE = ITEMS.register("conjured_pickaxe", () -> new PickaxeItem(new Item.Settings().maxCount(1)));
 
 
 }
