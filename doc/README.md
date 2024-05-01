@@ -32,9 +32,9 @@ pip install -e .[dev]
 
 For local testing, create a file called `.env` in the repo root following this template:
 ```sh
-GITHUB_REPOSITORY=demonpie/hexconjuring
+GITHUB_REPOSITORY=demonpie0369/hexconjuring
 GITHUB_SHA=main
-GITHUB_PAGES_URL=https://demonpie.github.io/hexconjuring
+GITHUB_PAGES_URL=https://demonpie0369.github.io/hexconjuring
 ```
 
 Useful commands:
