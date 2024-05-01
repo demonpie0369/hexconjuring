@@ -1,7 +1,7 @@
 package net.hexconjuring;
 
+import net.hexconjuring.items.HexconjuringItemRegistry;
 import net.hexconjuring.registry.HexconjuringIotaTypeRegistry;
-import net.hexconjuring.registry.HexconjuringItemRegistry;
 import net.hexconjuring.registry.HexconjuringPatternRegistry;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.LogManager;

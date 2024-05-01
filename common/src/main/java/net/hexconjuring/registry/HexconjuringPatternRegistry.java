@@ -7,6 +7,7 @@ import at.petrak.hexcasting.api.spell.math.HexPattern;
 import kotlin.Triple;
 import net.hexconjuring.casting.patterns.math.OpSignum;
 import net.hexconjuring.casting.patterns.spells.OpConjurePickaxe;
+import net.hexconjuring.casting.patterns.spells.OpConjureAxe;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ public class HexconjuringPatternRegistry {
     public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
     // IMPORTANT: be careful to keep the registration calls looking like this, or you'll have to edit the hexdoc pattern regex.
     public static HexPattern CONJUREPICKAXE = register(HexPattern.fromAngles("wwdwaqwqwqawq", HexDir.NORTH_EAST), "conjurepickaxe", new OpConjurePickaxe());
+    public static HexPattern CONJUREAXE = register(HexPattern.fromAngles("wwwwdeeweeweedqq", HexDir.NORTH_EAST), "conjureaxe", new OpConjureAxe());
     public static HexPattern SIGNUM = register(HexPattern.fromAngles("edd", HexDir.NORTH_WEST), "signum", new OpSignum());
 
     public static void init() {
