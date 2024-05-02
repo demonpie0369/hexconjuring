@@ -6,7 +6,7 @@
   "hexcasting.spell.book.hexconjuring:conjurepickaxe": "Miners Wish",
   "hexcasting.spell.book.hexconjuring:conjureaxe": "Lumberjacks Wish",
   "hexcasting.spell.book.hexconjuring:signum": "Dum. Actn.",
-  "hexconjuring.entry.conjuretoolspells": "Conjure Tools",
+  "hexconjuring.entry.conjuretoolspells": "Wishes",
   "hexconjuring.entry.dummy_actions": "Dummy Actions",
   "hexconjuring.page.conjuretoolspells.entry": "I seem to have stumbled upon a way to $(o)manipulate matter$() using _media.",
   "hexconjuring.page.conjuretoolspells.conjurepickaxe": "Accepts a player entity and a $(l:casting/101)number/$, then conjures a pickaxe. $(br)The pickaxe's durability is determined by the value put in. Costs two tenths of an $(l:items/amethyst#dust)$(item)amethyst dust/$ per point of durability, plus an extra ten to summon it.",
