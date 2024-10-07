@@ -3,9 +3,11 @@
   "id": "hexconjuring",
   "version": "${version}",
   "name": "Hex Conjuring",
-  "description": "Adds patterns that allow you to conjure things from media",
+  "description": "A Hex Casting addon which allows you to conjure objects and tools",
   "authors": [
-    "demonpie"
+    "demonpie",
+    "Luckly",
+    "Endaboi"
   ],
   "contact": {
     "homepage": "https://demonpie.github.io/hexconjuring",

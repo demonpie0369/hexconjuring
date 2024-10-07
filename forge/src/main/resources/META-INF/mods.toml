@@ -7,9 +7,9 @@ modId = "hexconjuring"
 version = "${version}"
 displayName = "Hex Conjuring"
 logoFile = "icon.png"
-authors = "demonpie"
+authors = "demonpie, Luckly, Endaboi"
 description = '''
-Adds patterns that allow you to conjure things from media
+A Hex Casting addon which allows you to conjure objects and tools
 '''
 
 [[dependencies.hexconjuring]]

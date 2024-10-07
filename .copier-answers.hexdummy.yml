@@ -2,16 +2,16 @@
 # https://copier.readthedocs.io/en/stable/configuring/#the-copier-answersyml-file
 _commit: v0.0.6
 _src_path: gh:FallingColors/hexdummy
-author: demonpie
+author: demonpie, Luckly, Endaboi
 capitalize_platforms: false
 classname: Hexconjuring
 default_branch: main
-description: Adds patterns that allow you to conjure things from media
+description: A Hex Casting addon which allows you to conjure objects and tools.
 display_name: Hex Conjuring
 github_repo: hexconjuring
 hexcasting_version: 0.10.3
 homepage_url: https://demonpie.github.io/hexconjuring
-initial_mod_version: 0.0.1
+initial_mod_version: 1.0.0
 java_version: 17
 license: MIT
 mappings_name: Yarn
