@@ -15,7 +15,10 @@ public class HexconjuringItemRegistry {
     // Register items through this
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(Hexconjuring.MOD_ID, Registry.ITEM_KEY);
     private static ConjuredPickaxeItem conjuredpickaxe = new ConjuredPickaxeItem(ModToolMaterials.CONJUREDTOOL, 0, 0, new Item.Settings().maxCount(1));
-    private static ConjuredAxeItem conjuredaxe = new ConjuredAxeItem(ModToolMaterials.CONJUREDTOOL, 0, 0, new Item.Settings().maxCount(1));
+    private static ConjuredAxeItem conjuredaxe = new ConjuredAxeItem(ModToolMaterials.CONJUREDTOOL, 4, 0, new Item.Settings().maxCount(1));
+    private static ConjuredHoeItem conjuredhoe = new ConjuredHoeItem(ModToolMaterials.CONJUREDTOOL, 0, 0, new Item.Settings().maxCount(1));
+    private static ConjuredShovelItem conjuredshovel = new ConjuredShovelItem(ModToolMaterials.CONJUREDTOOL, 0, 0, new Item.Settings().maxCount(1));
+    private static ConjuredSwordItem conjuredsword = new ConjuredSwordItem(ModToolMaterials.CONJUREDTOOL, 6, -2.4f, new Item.Settings().maxCount(1));
 
     public static void init() {
         ITEMS.register();
@@ -29,6 +32,12 @@ public class HexconjuringItemRegistry {
         () -> conjuredpickaxe);
     public static final RegistrySupplier<ConjuredAxeItem> CONJURED_AXE = ITEMS.register("conjured_axe",
         () -> conjuredaxe);
+    public static final RegistrySupplier<ConjuredHoeItem> CONJURED_HOE = ITEMS.register("conjured_hoe",
+            () -> conjuredhoe);
+    public static final RegistrySupplier<ConjuredShovelItem> CONJURED_SHOVEL = ITEMS.register("conjured_shovel",
+            () -> conjuredshovel);
+    public static final RegistrySupplier<ConjuredSwordItem> CONJURED_SWORD = ITEMS.register("conjured_sword",
+            () -> conjuredsword);
 
 
 }

@@ -19,7 +19,10 @@ public class HexconjuringMixin {
 		ItemStack thisStack = (ItemStack)(Object)this;
 		Item item = thisStack.getItem();
 		if(item == HexconjuringItemRegistry.CONJURED_PICKAXE.get() || 
-		   item == HexconjuringItemRegistry.CONJURED_AXE.get()) {
+		   item == HexconjuringItemRegistry.CONJURED_AXE.get()     ||
+		   item == HexconjuringItemRegistry.CONJURED_SHOVEL.get()  || 
+		   item == HexconjuringItemRegistry.CONJURED_HOE.get()     || 
+		   item == HexconjuringItemRegistry.CONJURED_SWORD.get()) {
 			info.setReturnValue(thisStack.getOrCreateNbt().getInt("durability"));
 		}
 		else {

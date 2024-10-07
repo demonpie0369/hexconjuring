@@ -63,6 +63,8 @@ public class OpConjurePickaxe implements SpellAction {
         context.assertVecInRange(pos);
         
         Integer durability = OperatorUtils.getPositiveInt(args, 1, getArgc());
+
+        Integer mediaCost = (MediaConstants.DUST_UNIT / 10) * durability + (MediaConstants.DUST_UNIT * 2);
         
         ItemStack pickStack = HexconjuringItemRegistry.CONJURED_PICKAXE.get().getDefaultStack();
         pickStack.setCount(1);
@@ -71,7 +73,7 @@ public class OpConjurePickaxe implements SpellAction {
         
         ItemEntity pickaxe = new ItemEntity(context.getWorld(), pos.getX(), pos.getY(), pos.getZ(), pickStack);
         
-        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(pickaxe), MediaConstants.DUST_UNIT, List.of());
+        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(pickaxe), mediaCost, List.of());
         // return List.of(new EntityIota(snack));
     }
 

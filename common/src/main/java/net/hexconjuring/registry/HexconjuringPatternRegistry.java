@@ -6,8 +6,12 @@ import at.petrak.hexcasting.api.spell.math.HexDir;
 import at.petrak.hexcasting.api.spell.math.HexPattern;
 import kotlin.Triple;
 import net.hexconjuring.casting.patterns.math.OpSignum;
-import net.hexconjuring.casting.patterns.spells.OpConjurePickaxe;
 import net.hexconjuring.casting.patterns.spells.OpConjureAxe;
+import net.hexconjuring.casting.patterns.spells.OpConjureBird;
+import net.hexconjuring.casting.patterns.spells.OpConjureHoe;
+import net.hexconjuring.casting.patterns.spells.OpConjurePickaxe;
+import net.hexconjuring.casting.patterns.spells.OpConjureShovel;
+import net.hexconjuring.casting.patterns.spells.OpConjureSword;
 import net.minecraft.util.Identifier;
 
 import java.util.ArrayList;
@@ -20,7 +24,11 @@ public class HexconjuringPatternRegistry {
     public static List<Triple<HexPattern, Identifier, Action>> PER_WORLD_PATTERNS = new ArrayList<>();
     // IMPORTANT: be careful to keep the registration calls looking like this, or you'll have to edit the hexdoc pattern regex.
     public static HexPattern CONJUREPICKAXE = register(HexPattern.fromAngles("wwdwaqwqwqawq", HexDir.NORTH_EAST), "conjurepickaxe", new OpConjurePickaxe());
-    public static HexPattern CONJUREAXE = register(HexPattern.fromAngles("wwwwdeeweeweedqq", HexDir.NORTH_EAST), "conjureaxe", new OpConjureAxe());
+    public static HexPattern CONJUREAXE = register(HexPattern.fromAngles("wweqqwqqwqqqw", HexDir.NORTH_EAST), "conjureaxe", new OpConjureAxe());
+    public static HexPattern CONJUREHOE = register(HexPattern.fromAngles("wweawqwaqe", HexDir.NORTH_EAST), "conjurehoe", new OpConjureHoe());
+    public static HexPattern CONJURESHOVEL = register(HexPattern.fromAngles("wwdawqqqwaq", HexDir.NORTH_EAST), "conjureshovel", new OpConjureShovel());
+    public static HexPattern CONJURESWORD = register(HexPattern.fromAngles("wdqqadwqqqwdaqqqw", HexDir.NORTH_EAST), "conjuresword", new OpConjureSword());
+    public static HexPattern CONJUREBIRD = register(HexPattern.fromAngles("qeweeewedw", HexDir.NORTH_EAST), "conjurebird", new OpConjureBird());
     public static HexPattern SIGNUM = register(HexPattern.fromAngles("edd", HexDir.NORTH_WEST), "signum", new OpSignum());
 
     public static void init() {

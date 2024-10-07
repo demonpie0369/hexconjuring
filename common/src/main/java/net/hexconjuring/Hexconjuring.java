@@ -1,5 +1,6 @@
 package net.hexconjuring;
 
+import net.hexconjuring.entities.HexconjuringEntityRegistry;
 import net.hexconjuring.items.HexconjuringItemRegistry;
 import net.hexconjuring.registry.HexconjuringIotaTypeRegistry;
 import net.hexconjuring.registry.HexconjuringPatternRegistry;
@@ -23,6 +24,7 @@ public class Hexconjuring {
         HexconjuringItemRegistry.init();
         HexconjuringIotaTypeRegistry.init();
         HexconjuringPatternRegistry.init();
+        HexconjuringEntityRegistry.init();
 
         LOGGER.info(HexconjuringAbstractions.getConfigDirectory().toAbsolutePath().normalize().toString());
     }

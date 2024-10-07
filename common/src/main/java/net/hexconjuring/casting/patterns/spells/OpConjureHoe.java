@@ -15,18 +15,18 @@ import at.petrak.hexcasting.api.spell.casting.eval.SpellContinuation;
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import kotlin.Triple;
 import net.hexconjuring.items.HexconjuringItemRegistry;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 
-public class OpConjureAxe implements SpellAction {
+public class OpConjureHoe implements SpellAction {
     /**
      * The number of arguments from the stack that this action requires.
      */
-    public OpConjureAxe(){
+    public OpConjureHoe(){
     }
 
     @Override
@@ -66,14 +66,14 @@ public class OpConjureAxe implements SpellAction {
 
         Integer mediaCost = (MediaConstants.DUST_UNIT / 10) * durability + (MediaConstants.DUST_UNIT * 2);
         
-        ItemStack axeStack = HexconjuringItemRegistry.CONJURED_AXE.get().getDefaultStack();
-        axeStack.setCount(1);
+        ItemStack hoeStack = HexconjuringItemRegistry.CONJURED_HOE.get().getDefaultStack();
+        hoeStack.setCount(1);
         
-        axeStack.getOrCreateNbt().putInt("durability", durability);
+        hoeStack.getOrCreateNbt().putInt("durability", durability);
         
-        ItemEntity axe = new ItemEntity(context.getWorld(), pos.getX(), pos.getY(), pos.getZ(), axeStack);
+        ItemEntity hoe = new ItemEntity(context.getWorld(), pos.getX(), pos.getY(), pos.getZ(), hoeStack);
         
-        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(axe), mediaCost, List.of());
+        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(hoe), mediaCost, List.of());
         // return List.of(new EntityIota(snack));
     }
 
@@ -83,13 +83,13 @@ public class OpConjureAxe implements SpellAction {
      * [cast] method within is responsible for using that data to alter the world.
      */
     public class Spell implements RenderedSpell{
-        private ItemEntity axe;
-        public Spell(ItemEntity axe){
-            this.axe = axe;
+        private ItemEntity hoe;
+        public Spell(ItemEntity hoe){
+            this.hoe = hoe;
         }
 
         public void cast(CastingContext ctx){
-            ctx.getWorld().spawnEntity(axe);
+            ctx.getWorld().spawnEntity(hoe);
         }
     }
 

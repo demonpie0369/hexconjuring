@@ -2,8 +2,12 @@ package net.hexconjuring.casting.patterns.spells;
 
 import java.util.List;
 
+import net.minecraft.entity.EntityStatuses;
 import org.jetbrains.annotations.NotNull;
 
+import dev.architectury.registry.registries.DeferredRegister;
+import dev.architectury.registry.registries.Registries;
+import dev.architectury.registry.registries.RegistrySupplier;
 import at.petrak.hexcasting.api.misc.MediaConstants;
 import at.petrak.hexcasting.api.spell.OperationResult;
 import at.petrak.hexcasting.api.spell.OperatorUtils;
@@ -15,22 +19,28 @@ import at.petrak.hexcasting.api.spell.casting.eval.SpellContinuation;
 import at.petrak.hexcasting.api.spell.iota.Iota;
 import kotlin.Triple;
 import net.hexconjuring.items.HexconjuringItemRegistry;
+import net.hexconjuring.entities.HexconjuringEntityRegistry;
+import net.hexconjuring.Hexconjuring;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.passive.ParrotEntity;
+import net.hexconjuring.entities.ConjuredBirdEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.mob.MobEntity;
 
-public class OpConjureAxe implements SpellAction {
+public class OpConjureBird implements SpellAction {
     /**
      * The number of arguments from the stack that this action requires.
      */
-    public OpConjureAxe(){
+    public OpConjureBird(){
     }
 
     @Override
-    public int getArgc(){ return 2;}
+    public int getArgc(){ return 1;}
 
     public boolean hasCastingSound(@NotNull CastingContext ctx){
         return true;
@@ -41,13 +51,13 @@ public class OpConjureAxe implements SpellAction {
     }
 
     @Override
-    public boolean isGreat(){ return false;}
+    public boolean isGreat(){ return true;}
 
     @Override
-    public boolean getCausesBlindDiversion(){ return false;}
+    public boolean getCausesBlindDiversion(){ return true;}
 
     @Override 
-    public boolean getAlwaysProcessGreatSpell(){ return false;}
+    public boolean getAlwaysProcessGreatSpell(){ return true;}
 
     @Override
     public Text getDisplayName(){ 
@@ -57,23 +67,19 @@ public class OpConjureAxe implements SpellAction {
     @Override
     public Triple<RenderedSpell, Integer, List<ParticleSpray>> execute(List<? extends Iota> args, CastingContext context){
 
-        ServerPlayerEntity player = OperatorUtils.getPlayer(args, 0, getArgc());
-        Vec3d pos = player.getPos();
+        Vec3d pos = OperatorUtils.getVec3(args, 0, getArgc());
         
         context.assertVecInRange(pos);
         
-        Integer durability = OperatorUtils.getPositiveInt(args, 1, getArgc());
-
-        Integer mediaCost = (MediaConstants.DUST_UNIT / 10) * durability + (MediaConstants.DUST_UNIT * 2);
+        EntityType<ConjuredBirdEntity> type = HexconjuringEntityRegistry.CONJURED_BIRD_ENTITY_TYPE.get();
         
-        ItemStack axeStack = HexconjuringItemRegistry.CONJURED_AXE.get().getDefaultStack();
-        axeStack.setCount(1);
+        ConjuredBirdEntity bird = new ConjuredBirdEntity(type, context.getWorld());
         
-        axeStack.getOrCreateNbt().putInt("durability", durability);
+        bird.setPosition(pos);
+        bird.setOwner(context.getCaster());
+        context.getWorld().sendEntityStatus(bird, EntityStatuses.ADD_POSITIVE_PLAYER_REACTION_PARTICLES);
         
-        ItemEntity axe = new ItemEntity(context.getWorld(), pos.getX(), pos.getY(), pos.getZ(), axeStack);
-        
-        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(axe), mediaCost, List.of());
+        return new Triple<RenderedSpell, Integer, List<ParticleSpray>>(new Spell(bird), MediaConstants.DUST_UNIT * 1000, List.of());
         // return List.of(new EntityIota(snack));
     }
 
@@ -83,13 +89,13 @@ public class OpConjureAxe implements SpellAction {
      * [cast] method within is responsible for using that data to alter the world.
      */
     public class Spell implements RenderedSpell{
-        private ItemEntity axe;
-        public Spell(ItemEntity axe){
-            this.axe = axe;
+        private ConjuredBirdEntity bird;
+        public Spell(ConjuredBirdEntity bird){
+            this.bird = bird;
         }
 
         public void cast(CastingContext ctx){
-            ctx.getWorld().spawnEntity(axe);
+            ctx.getWorld().spawnEntity(bird);
         }
     }
 
